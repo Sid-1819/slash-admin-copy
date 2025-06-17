@@ -11,7 +11,7 @@ import { registerLocalIcons } from "./components/icon";
 import PageError from "./pages/sys/error/PageError";
 import { routesSection } from "./routes/sections";
 import { urlJoin } from "./utils";
-
+// import { PostHogProvider } from "posthog-js/react";
 const { VITE_APP_BASE_PATH = "/" } = import.meta.env;
 
 await registerLocalIcons();
@@ -29,13 +29,22 @@ if (import.meta.env.DEV) {
 	});
 }
 
+// const options = {
+// 	api_host: process.env.REACT_APP_PUBLIC_POSTHOG_HOST,
+// };
+
 const router = createBrowserRouter(
 	[
 		{
 			Component: () => (
+				// <PostHogProvider
+				// apiKey={process.env.REACT_APP_PUBLIC_POSTHOG_KEY}
+				// options={options}
+				// 	>
 				<App>
 					<Outlet />
 				</App>
+				// </PostHogProvider>
 			),
 			errorElement: <ErrorBoundary fallbackRender={PageError} />,
 			children: routesSection,
