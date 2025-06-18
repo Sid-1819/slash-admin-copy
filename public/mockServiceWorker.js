@@ -188,7 +188,23 @@ async function getResponse(event, client, requestId) {
   const { request } = event
 
    if (url.hostname.includes("enspect-app.dev.en-gage.in")) {
-    return fetch(request);
+    url.pathname = url.pathname.replace(/^\/api/, '');
+const modifiedRequest = new Request(url.href, {
+  method: request.method,
+  headers: request.headers,
+  body: request.body,
+  mode: request.mode,
+  credentials: request.credentials,
+  cache: request.cache,
+  redirect: request.redirect,
+  referrer: request.referrer,
+  referrerPolicy: request.referrerPolicy,
+  integrity: request.integrity,
+  keepalive: request.keepalive,
+});
+
+return fetch(modifiedRequest);
+
   }
   // Clone the request because it might've been already used
   // (i.e. its body has been read and sent to the client).
