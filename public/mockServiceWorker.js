@@ -187,9 +187,6 @@ async function resolveMainClient(event) {
 async function getResponse(event, client, requestId) {
   const { request } = event
 
-   if (url.hostname.includes("enspect-app.dev.en-gage.in")) {
-    return fetch(request);
-  }
   // Clone the request because it might've been already used
   // (i.e. its body has been read and sent to the client).
   const requestClone = request.clone()
