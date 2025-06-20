@@ -48,6 +48,12 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
 		}
 	};
 
+	const handleSubmit = () => {
+			window.enspect.identify?.("admin", {
+			user_name:"admin", user_age:18
+		})
+	}
+
 	return (
 		<div className={cn("flex flex-col gap-6", className)}>
 			<Form {...form} {...props}>
@@ -101,7 +107,7 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
 					</div>
 
 					{/* 登录按钮 */}
-					<Button type="submit" className="w-full">
+					<Button type="submit" className="w-full" onClick={handleSubmit}>
 						{loading && <Loader2 className="animate-spin mr-2" />}
 						{t("sys.login.loginButton")}
 					</Button>
