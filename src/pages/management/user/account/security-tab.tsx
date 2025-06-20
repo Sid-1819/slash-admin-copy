@@ -21,13 +21,9 @@ export default function SecurityTab() {
 	});
 
 	const handleSubmit = () => {
-		window.enspect.identify?.({
-			user_name: "admin",
-			user_properties: {
-				user_name: "admin",
-				age: 18,
-			}
-			})
+		window.enspect.identify?.("admin", {
+			user_name:"admin", user_age:18
+		})
 		// Handle form submission here
 		toast.success("Update success!");
 	};
