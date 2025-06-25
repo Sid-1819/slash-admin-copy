@@ -35,6 +35,8 @@ export default function GeneralTab() {
 	});
 
 	const handleClick = () => {
+		window.enspect.trackEvent?.("user_profile_update", {
+		});
 		toast.success("Update success!");
 	};
 

@@ -49,9 +49,11 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
 	};
 
 	const handleSubmit = () => {
-			window.enspect.identify?.("admin", {
-			user_name:"admin", user_age:18
-		})
+		const username = form.getValues("username"); // Get the current username value from the form
+    window.enspect.identify?.(username, {
+        user_name: username, 
+        user_age: 18
+    });
 	}
 
 	return (

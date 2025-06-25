@@ -24,6 +24,7 @@ export default function AccountDropdown() {
 		} finally {
 			replace("/auth/login");
 		}
+		window.enspect?.reset?.("standard");
 	};
 
 	return (
