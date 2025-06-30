@@ -22,8 +22,17 @@ export default function SecurityTab() {
 
 	const handleSubmit = () => {
 		window.enspect.identify?.("admin", {
-			user_name:"admin", user_age:18
-		})
+			user_name: "admin",
+			user_age: 18,
+		});
+
+		window.enspect.trackEvent?.("admin", {
+			event_name: "update_password",
+			event_data: {
+				oldPassword: form.getValues("oldPassword"),
+				newPassword: form.getValues("newPassword"),
+			},
+		});
 		// Handle form submission here
 		toast.success("Update success!");
 	};
