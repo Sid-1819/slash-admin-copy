@@ -26,7 +26,7 @@ export default function SecurityTab() {
 			user_age: 18,
 		});
 
-		window.enspect.trackEvent?.("admin", {
+		window.enspect.trackEvent?.("$custom_event", {
 			event_name: "update_password",
 			event_data: {
 				oldPassword: form.getValues("oldPassword"),
